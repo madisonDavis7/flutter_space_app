@@ -25,15 +25,15 @@ class SpaceApp extends StatelessWidget {
       initialRoute: '/home',
       routes: {
         '/home': (context) => HomePage(),
-        //'/navigation': (context) => NavigationPage(),
+        '/navigation': (context) => NavigationPage(),
         '/mercury': (context) => MercuryPage(),
-        //'/venus': (context) => VenusPage(),
-        //'/earth': (context) => EarthPage(),
-        //'/mars': (context) => MarsPage(),
-        //'/jupiter': (context) => JupiterPage(),
-        //'/saturn': (context) => SaturnPage(),
-        //'/uranus': (context) => UranusPage(),
-        //'/neptune': (context) => NeptunePage(),
+        '/venus': (context) => VenusPage(),
+        '/earth': (context) => EarthPage(),
+        '/mars': (context) => MarsPage(),
+        '/jupiter': (context) => JupiterPage(),
+        '/saturn': (context) => SaturnPage(),
+        '/uranus': (context) => UranusPage(),
+        '/neptune': (context) => NeptunePage(),
 
         // Add more routes here as needed
       },

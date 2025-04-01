@@ -1,14 +1,4 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
-import 'navigation.dart';
-import 'mercury.dart';
-import 'venus.dart';
-import 'earth.dart';
-import 'mars.dart';
-import 'jupiter.dart';
-import 'saturn.dart';
-import 'uranus.dart';
-import 'neptune.dart';
 
 class NavigationPage extends StatelessWidget {
   const NavigationPage({super.key});
@@ -77,7 +67,9 @@ class NavigationPage extends StatelessWidget {
           HoverButton(
             imagePath: 'images/neptune.png',
             height: 110,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/neptune');
+            },
           ),
           const SizedBox(height: 40),
         ],

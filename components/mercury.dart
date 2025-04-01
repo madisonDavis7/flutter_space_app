@@ -7,7 +7,7 @@ class MercuryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Mercury')),
+      appBar: AppBar(title: const Text('Home')),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
