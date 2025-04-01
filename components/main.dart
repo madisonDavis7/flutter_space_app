@@ -21,7 +21,10 @@ class SpaceApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Space App',
-      theme: ThemeData.dark(),
+      theme: ThemeData.dark().copyWith(
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.black26),
+      ),
+
       initialRoute: '/home',
       routes: {
         '/home': (context) => HomePage(),
