@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui'; // Required for BackdropFilter
+import 'wave.dart';
 
 class MarsPage extends StatelessWidget {
   const MarsPage({super.key});
@@ -23,9 +24,13 @@ class MarsPage extends StatelessWidget {
               crossAxisAlignment:
                   CrossAxisAlignment.center, // Aligns children horizontally
               children: [
-                const Text(
-                  'Mars',
-                  style: TextStyle(fontSize: 32, color: Colors.white),
+                WaveText(
+                  text: 'Mars',
+                  textStyle: TextStyle(
+                    fontSize: 72,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(
                   height: 30,
