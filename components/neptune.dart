@@ -64,10 +64,15 @@ class NeptunePage extends StatelessWidget {
                       padding: const EdgeInsets.all(
                         16.0,
                       ), // Padding inside the container
-                      child: const Text(
-                        'Mercury is the closest planet to the Sun and the smallest planet in the Solar System.',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                        textAlign: TextAlign.center,
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        child: const Text(
+                          "Because of it's deep blue color Neptune was named after the Roman god of the sea. It was the first planet to be discovered using mathematics. It was discovered in 1846 by Urbain Le Verrier.",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.visible,
+                          softWrap: true,
+                        ),
                       ),
                     ),
                   ),
@@ -95,10 +100,10 @@ class NeptunePage extends StatelessWidget {
                           itemCount: 4, // Number of facts to display
                           itemBuilder: (context, index) {
                             final facts = [
-                              'Radius: 2,439.7 km',
-                              'Distance from Sun: 57.91 million km',
-                              'Tilt: 0.034°',
-                              'Known moons: None',
+                              'Radius: 49,528 km',
+                              'AU from Sun: 30',
+                              'Tilt: 28°',
+                              'Known moons: 16',
                             ];
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(

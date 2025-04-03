@@ -11,6 +11,7 @@ import 'saturn.dart';
 import 'uranus.dart';
 import 'neptune.dart';
 import 'navigation.dart';
+import 'map.dart';
 
 void main() {
   runApp(SpaceApp());
@@ -37,6 +38,7 @@ class SpaceApp extends StatelessWidget {
         '/saturn': (context) => SaturnPage(),
         '/uranus': (context) => UranusPage(),
         '/neptune': (context) => NeptunePage(),
+        '/map': (context) => MapPage(),
 
         // Add more routes here as needed
       },

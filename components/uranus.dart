@@ -64,10 +64,20 @@ class UranusPage extends StatelessWidget {
                       padding: const EdgeInsets.all(
                         16.0,
                       ), // Padding inside the container
-                      child: const Text(
-                        'Mercury is the closest planet to the Sun and the smallest planet in the Solar System.',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                        textAlign: TextAlign.center,
+                      child: SizedBox(
+                        width:
+                            MediaQuery.of(context).size.width *
+                            0.6, // Width of the text container
+                        child: const Text(
+                          '''Uranus was the first planet discovered with a telescope in 1781 by 
+                          William Herschel. It was originally named 'Georgium Sidus' after King 
+                          George III. It was later renamed Uranus, the Greek god of the sky''',
+
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          overflow: TextOverflow.visible,
+                        ),
                       ),
                     ),
                   ),
@@ -95,10 +105,10 @@ class UranusPage extends StatelessWidget {
                           itemCount: 4, // Number of facts to display
                           itemBuilder: (context, index) {
                             final facts = [
-                              'Radius: 2,439.7 km',
-                              'Distance from Sun: 57.91 million km',
-                              'Tilt: 0.034°',
-                              'Known moons: None',
+                              'Radius: 25,559 km',
+                              'AU from Sun: 19',
+                              'Tilt: 97.77°',
+                              'Known moons: 28',
                             ];
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(

@@ -64,10 +64,15 @@ class MarsPage extends StatelessWidget {
                       padding: const EdgeInsets.all(
                         16.0,
                       ), // Padding inside the container
-                      child: const Text(
-                        'Mercury is the closest planet to the Sun and the smallest planet in the Solar System.',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                        textAlign: TextAlign.center,
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        child: const Text(
+                          "Mars is the only planet where rovers have explored the surface. Named after the Roman god of war, Mars is often called the 'Red Planet' due to its reddish appearance.",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          overflow: TextOverflow.visible,
+                        ),
                       ),
                     ),
                   ),
@@ -95,10 +100,10 @@ class MarsPage extends StatelessWidget {
                           itemCount: 4, // Number of facts to display
                           itemBuilder: (context, index) {
                             final facts = [
-                              'Radius: 2,439.7 km',
-                              'Distance from Sun: 57.91 million km',
-                              'Tilt: 0.034°',
-                              'Known moons: None',
+                              'Radius: 3,390 km',
+                              'AU from Sun: 1.5',
+                              'Tilt: 25°',
+                              'Known moons: 2',
                             ];
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(

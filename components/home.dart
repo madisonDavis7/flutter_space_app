@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'navigation.dart';
+import 'map.dart';
 import 'wave.dart';
 
 class HomePage extends StatelessWidget {
@@ -79,6 +80,10 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const NavigationPage(),
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: const MapPage(),
+            ),
           ],
         ),
       ),

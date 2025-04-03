@@ -62,10 +62,15 @@ class SaturnPage extends StatelessWidget {
                       padding: const EdgeInsets.all(
                         16.0,
                       ), // Padding inside the container
-                      child: const Text(
-                        'Mercury is the closest planet to the Sun and the smallest planet in the Solar System.',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                        textAlign: TextAlign.center,
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        child: const Text(
+                          "Saturn was named after the Roman god of agriculture and wealth. It is the sixth planet from the sun and the second largest in the solar system.",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          overflow: TextOverflow.visible,
+                        ),
                       ),
                     ),
                   ),
@@ -93,10 +98,10 @@ class SaturnPage extends StatelessWidget {
                           itemCount: 4, // Number of facts to display
                           itemBuilder: (context, index) {
                             final facts = [
-                              'Radius: 2,439.7 km',
-                              'Distance from Sun: 57.91 million km',
-                              'Tilt: 0.034°',
-                              'Known moons: None',
+                              'Radius: 110,250 km',
+                              'AU from Sun: 9.5',
+                              'Tilt: 26.73°',
+                              'Known moons: 146',
                             ];
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(

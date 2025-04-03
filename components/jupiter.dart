@@ -64,10 +64,15 @@ class JupiterPage extends StatelessWidget {
                       padding: const EdgeInsets.all(
                         16.0,
                       ), // Padding inside the container
-                      child: const Text(
-                        'Mercury is the closest planet to the Sun and the smallest planet in the Solar System.',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                        textAlign: TextAlign.center,
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        child: const Text(
+                          "Jupiter is both the largest and oldest planet. It's namesake comes from the the king of gods, Jupiter, in Roman mythology. The first of the gas giants, Jupiter is made mainly of hydrogen and helium.",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          overflow: TextOverflow.visible,
+                        ),
                       ),
                     ),
                   ),
@@ -95,10 +100,10 @@ class JupiterPage extends StatelessWidget {
                           itemCount: 4, // Number of facts to display
                           itemBuilder: (context, index) {
                             final facts = [
-                              'Radius: 2,439.7 km',
-                              'Distance from Sun: 57.91 million km',
-                              'Tilt: 0.034°',
-                              'Known moons: None',
+                              'Radius: 69,911 km',
+                              'AU from Sun: 5.2',
+                              'Tilt: 3°',
+                              'Known moons: 95',
                             ];
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(

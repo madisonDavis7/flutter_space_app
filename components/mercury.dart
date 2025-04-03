@@ -64,10 +64,16 @@ class MercuryPage extends StatelessWidget {
                       padding: const EdgeInsets.all(
                         16.0,
                       ), // Padding inside the container
-                      child: const Text(
-                        'Mercury is the closest planet to the Sun and the smallest planet in the Solar System.',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                        textAlign: TextAlign.center,
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * .6,
+
+                        child: const Text(
+                          "Mercury is named after the swiftest of the Roman gods due to it's qucik orbit. Being the closest planet to the sun, it has a very short year of only 88 Earth days.",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          overflow: TextOverflow.visible,
+                        ),
                       ),
                     ),
                   ),
@@ -95,10 +101,10 @@ class MercuryPage extends StatelessWidget {
                           itemCount: 4, // Number of facts to display
                           itemBuilder: (context, index) {
                             final facts = [
-                              'Radius: 2,439.7 km',
-                              'Distance from Sun: 57.91 million km',
-                              'Tilt: 0.034°',
-                              'Known moons: None',
+                              'Radius: 2,440 km',
+                              'AU from Sun: 0.4',
+                              'Tilt: 2°',
+                              'Known moons: 0',
                             ];
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(

@@ -64,10 +64,15 @@ class EarthPage extends StatelessWidget {
                       padding: const EdgeInsets.all(
                         16.0,
                       ), // Padding inside the container
-                      child: const Text(
-                        'Mercury is the closest planet to the Sun and the smallest planet in the Solar System.',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                        textAlign: TextAlign.center,
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        child: const Text(
+                          "Earth is the only planet to not have a name derived from Roman or Greek mythology, instead it means 'the ground' and was taken from Old English and Germanic. It is the fifth largest planet in the solar system and the only planet with liquid water on its surface.",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          overflow: TextOverflow.visible,
+                        ),
                       ),
                     ),
                   ),
@@ -95,10 +100,10 @@ class EarthPage extends StatelessWidget {
                           itemCount: 4, // Number of facts to display
                           itemBuilder: (context, index) {
                             final facts = [
-                              'Radius: 2,439.7 km',
-                              'Distance from Sun: 57.91 million km',
-                              'Tilt: 0.034°',
-                              'Known moons: None',
+                              'Radius: 12,760 km',
+                              'AU from Sun: 1',
+                              'Tilt: 23.4°',
+                              'Known moons: 1',
                             ];
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(

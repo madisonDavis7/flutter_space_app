@@ -64,10 +64,19 @@ class VenusPage extends StatelessWidget {
                       padding: const EdgeInsets.all(
                         16.0,
                       ), // Padding inside the container
-                      child: const Text(
-                        'Mercury is the closest planet to the Sun and the smallest planet in the Solar System.',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                        textAlign: TextAlign.center,
+                      child: SizedBox(
+                        width:
+                            MediaQuery.of(context).size.width *
+                            0.6, // Fixed width (60% of screen width)
+                        child: const Text(
+                          "Venus is the second planet from the sun and the third brightest object in the sky. The only planet named after a female god, Venus gets its namesake from the Roman god of love and beauty.",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                          textAlign: TextAlign.center, // Center-align the text
+                          softWrap: true, // Ensure text wraps to the next line
+                          overflow:
+                              TextOverflow
+                                  .visible, // Allow text to expand vertically
+                        ),
                       ),
                     ),
                   ),
@@ -95,10 +104,10 @@ class VenusPage extends StatelessWidget {
                           itemCount: 4, // Number of facts to display
                           itemBuilder: (context, index) {
                             final facts = [
-                              'Radius: 2,439.7 km',
-                              'Distance from Sun: 57.91 million km',
-                              'Tilt: 0.034°',
-                              'Known moons: None',
+                              'Radius: 6,102 km',
+                              'AU from Sun: 0.72',
+                              'Tilt: 177.4°',
+                              'Known moons: 0',
                             ];
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(
