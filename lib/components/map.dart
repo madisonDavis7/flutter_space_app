@@ -30,7 +30,11 @@ class MapPage extends StatelessWidget {
                 ),
                 Text(
                   'Click to see where the ISS is located now',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
               ],
             ),

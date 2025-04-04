@@ -18,6 +18,8 @@ void main() {
 }
 
 class SpaceApp extends StatelessWidget {
+  const SpaceApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
