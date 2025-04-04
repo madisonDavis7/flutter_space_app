@@ -17,13 +17,22 @@ class MapPage extends StatelessWidget {
             ),
           ),
           child: Center(
-            child: Text(
-              'Map Page',
-              style: TextStyle(
-                fontSize: 32,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Map Page',
+                  style: TextStyle(
+                    fontSize: 32,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'Click to see where the ISS is located now',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
+              ],
             ),
           ),
         ),
