@@ -20,16 +20,10 @@ class _MapPageState extends State<MapPage> {
     const String apiUrl = 'https://api.wheretheiss.at/v1/satellites/25544';
 
     try {
-      // Log the start of the API request
-      print('Fetching ISS location from API...');
-
       // Fetch ISS location
       final response = await http.get(Uri.parse(apiUrl));
-      print('API response status: ${response.statusCode}');
-
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
-        print('API response data: $data');
 
         final latitudeValue = data['latitude'];
         final longitudeValue = data['longitude'];
@@ -40,41 +34,29 @@ class _MapPageState extends State<MapPage> {
           longitude = 'Longitude: $longitudeValue';
         });
 
-        // Log Firestore update
-        print(
-          'Updating Firestore with latitude: $latitudeValue, longitude: $longitudeValue',
-        );
-
         // Update the Firestore document
-        try {
-          print('Attempting to write to Firestore...');
-          await FirebaseFirestore.instance
-              .collection('iss_location') // Collection name
-              .doc('location') // Document name
-              .set({
-                'latitude': latitudeValue,
-                'longitude': longitudeValue,
-                'timestamp': FieldValue.serverTimestamp(), // Use server time
-              });
-          print('Firestore update successful');
-        } catch (e) {
-          print('Firestore update failed: $e');
-        }
+        await FirebaseFirestore.instance
+            .collection('iss_location') // Collection name
+            .doc('location') // Document name
+            .set({
+              'latitude': latitudeValue,
+              'longitude': longitudeValue,
+              'timestamp': FieldValue.serverTimestamp(), // Use server time
+            });
+
+        //print('Location updated in Firestore');
       } else {
-        // Log API error
-        print('API error: ${response.statusCode}, ${response.body}');
         setState(() {
-          latitude = 'Error fetching data: ${response.statusCode}';
-          longitude = 'Error fetching data: ${response.statusCode}';
+          latitude = 'Error fetching data';
+          longitude = 'Error fetching data';
         });
       }
     } catch (e) {
-      // Log exception
-      print('Error occurred: $e');
       setState(() {
-        latitude = 'Error fetching data: $e';
-        longitude = 'Error fetching data: $e';
+        latitude = 'Error fetching dataa';
+        longitude = 'Error fetching dataa';
       });
+      //print('Error: $e');
     }
   }
 
