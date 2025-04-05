@@ -69,7 +69,8 @@ class VenusPage extends StatelessWidget {
                             MediaQuery.of(context).size.width *
                             0.6, // Fixed width (60% of screen width)
                         child: const Text(
-                          "Venus is the second planet from the sun and the third brightest object in the sky. The only planet named after a female god, Venus gets its namesake from the Roman god of love and beauty.",
+                          'Venus is the second planet from the sun and the third brightest object in the sky. The only planet named after a female god, Venus gets its namesake from the Roman god of love and beauty.'
+                          '',
                           style: TextStyle(fontSize: 16, color: Colors.white),
                           textAlign: TextAlign.center, // Center-align the text
                           softWrap: true, // Ensure text wraps to the next line

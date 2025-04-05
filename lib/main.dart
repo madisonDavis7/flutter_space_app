@@ -13,8 +13,13 @@ import 'components/neptune.dart';
 import 'components/navigation.dart';
 import 'components/map.dart';
 
-void main() {
-  runApp(SpaceApp());
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.web);
+  runApp(const SpaceApp());
 }
 
 class SpaceApp extends StatelessWidget {

@@ -12,8 +12,12 @@ import 'uranus.dart';
 import 'neptune.dart';
 import 'navigation.dart';
 import 'map.dart';
+import 'package:firebase_core/firebase_core.dart';
+import '/firebase_options.dart'; // Ensure this file exists and is correctly configured
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.web);
   runApp(SpaceApp());
 }
 

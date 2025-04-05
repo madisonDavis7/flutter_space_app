@@ -69,10 +69,7 @@ class UranusPage extends StatelessWidget {
                             MediaQuery.of(context).size.width *
                             0.6, // Width of the text container
                         child: const Text(
-                          '''Uranus was the first planet discovered with a telescope in 1781 by 
-                          William Herschel. It was originally named 'Georgium Sidus' after King 
-                          George III. It was later renamed Uranus, the Greek god of the sky''',
-
+                          "Uranus was the first planet discovered with a telescope in 1781 by William Herschel. It was originally named 'Georgium Sidus' after King George III. It was later renamed Uranus, the Greek god of the sky",
                           style: TextStyle(fontSize: 16, color: Colors.white),
                           textAlign: TextAlign.center,
                           softWrap: true,

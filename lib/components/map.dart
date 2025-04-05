@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'wave.dart';
@@ -14,27 +15,65 @@ class _MapPageState extends State<MapPage> {
   String latitude = 'Latitude: '; // Placeholder for latitude
   String longitude = 'Longitude: '; // Placeholder for longitude
 
-  // Function to fetch ISS location
+  // fetch ISS location
   Future<void> _fetchIssLocation() async {
     const String apiUrl = 'https://api.wheretheiss.at/v1/satellites/25544';
+
     try {
+      // Log the start of the API request
+      print('Fetching ISS location from API...');
+
+      // Fetch ISS location
       final response = await http.get(Uri.parse(apiUrl));
+      print('API response status: ${response.statusCode}');
+
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
+        print('API response data: $data');
+
+        final latitudeValue = data['latitude'];
+        final longitudeValue = data['longitude'];
+
+        // Update UI
         setState(() {
-          latitude = 'Latitude: ${data['latitude']}';
-          longitude = 'Longitude: ${data['longitude']}';
+          latitude = 'Latitude: $latitudeValue';
+          longitude = 'Longitude: $longitudeValue';
         });
+
+        // Log Firestore update
+        print(
+          'Updating Firestore with latitude: $latitudeValue, longitude: $longitudeValue',
+        );
+
+        // Update the Firestore document
+        try {
+          print('Attempting to write to Firestore...');
+          await FirebaseFirestore.instance
+              .collection('iss_location') // Collection name
+              .doc('location') // Document name
+              .set({
+                'latitude': latitudeValue,
+                'longitude': longitudeValue,
+                'timestamp': FieldValue.serverTimestamp(), // Use server time
+              });
+          print('Firestore update successful');
+        } catch (e) {
+          print('Firestore update failed: $e');
+        }
       } else {
+        // Log API error
+        print('API error: ${response.statusCode}, ${response.body}');
         setState(() {
-          latitude = 'Error fetching data';
-          longitude = 'Error fetching data';
+          latitude = 'Error fetching data: ${response.statusCode}';
+          longitude = 'Error fetching data: ${response.statusCode}';
         });
       }
     } catch (e) {
+      // Log exception
+      print('Error occurred: $e');
       setState(() {
-        latitude = 'Error fetching data';
-        longitude = 'Error fetching data';
+        latitude = 'Error fetching data: $e';
+        longitude = 'Error fetching data: $e';
       });
     }
   }
