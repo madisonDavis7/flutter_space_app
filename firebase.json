@@ -16,10 +16,14 @@
           }
         }
       }
-    },
-    "firestore": {
-      "rules": "firestore.rules"
     }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "source": "functions"
   },
   "hosting": {
     "public": "build/web",
@@ -34,9 +38,5 @@
         "destination": "/index.html"
       }
     ]
-  },
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
   }
 }

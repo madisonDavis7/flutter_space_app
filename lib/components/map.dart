@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'wave.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -25,8 +26,14 @@ class _MapPageState extends State<MapPage> {
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
 
+        // Log the API response
+        print('API response: $data');
+
         final latitudeValue = data['latitude'];
         final longitudeValue = data['longitude'];
+
+        // Log the extracted values
+        print('Extracted latitude: $latitudeValue, longitude: $longitudeValue');
 
         // Update UI
         setState(() {
@@ -34,29 +41,29 @@ class _MapPageState extends State<MapPage> {
           longitude = 'Longitude: $longitudeValue';
         });
 
-        // Update the Firestore document
-        await FirebaseFirestore.instance
-            .collection('iss_location') // Collection name
-            .doc('location') // Document name
-            .set({
-              'latitude': latitudeValue,
-              'longitude': longitudeValue,
-              'timestamp': FieldValue.serverTimestamp(), // Use server time
-            });
+        // Call the Cloud Function
+        final HttpsCallable callable = FirebaseFunctions.instance.httpsCallable(
+          'updateIssLocation',
+        );
+        final result = await callable.call({
+          'latitude': latitudeValue,
+          'longitude': longitudeValue,
+        });
 
-        //print('Location updated in Firestore');
+        print(result.data['message']); // Log success message
       } else {
+        print('Error fetching ISS location: ${response.statusCode}');
         setState(() {
           latitude = 'Error fetching data';
           longitude = 'Error fetching data';
         });
       }
     } catch (e) {
+      print('Error: $e');
       setState(() {
         latitude = 'Error fetching dataa';
         longitude = 'Error fetching dataa';
       });
-      //print('Error: $e');
     }
   }
 
