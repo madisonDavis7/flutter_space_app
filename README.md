@@ -1,16 +1,15 @@
 # space_app_flutter
 
-A new Flutter project.
+Same app as before (celestia) but using Flutter :)
 
-## Getting Started
+# View as Website (probably looks cooler cause it was made with a larger screen in mind
 
-This project is a starting point for a Flutter application.
+# ...
 
-A few resources to get you started if this is your first Flutter project:
+Was a pain but worth it
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# to figure out later
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+didn't get map to work so took it out of this version
+
+🎃
