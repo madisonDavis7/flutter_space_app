@@ -21,10 +21,7 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for android - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return android;
       case TargetPlatform.iOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for ios - '
@@ -53,11 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: "AIzaSyAsXmVz12P5UPwpvTX0Z-YtU5MMJ2_omFw",
-    authDomain: "fnof-stack-a31a1.firebaseapp.com",
-    projectId: "fnof-stack-a31a1",
-    storageBucket: "fnof-stack-a31a1.firebasestorage.app",
-    messagingSenderId: "807836240261",
-    appId: "1:807836240261:web:c8ae5b478e1f3d4bc85cec",
+    apiKey: 'AIzaSyAsXmVz12P5UPwpvTX0Z-YtU5MMJ2_omFw',
+    appId: '1:807836240261:web:c23def03053759abc85cec',
+    messagingSenderId: '807836240261',
+    projectId: 'fnof-stack-a31a1',
+    authDomain: 'fnof-stack-a31a1.firebaseapp.com',
+    storageBucket: 'fnof-stack-a31a1.firebasestorage.app',
+  );
+
+  //for android (need?)
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyAsXmVz12P5UPwpvTX0Z-YtU5MMJ2_omFw',
+    appId: '1:807836240261:android:7d5d383b6025fe1bc85cec',
+    messagingSenderId: '807836240261',
+    projectId: 'fnof-stack-a31a1',
+    storageBucket: 'fnof-stack-a31a1.firebasestorage.app',
   );
 }

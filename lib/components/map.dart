@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'wave.dart';
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -22,17 +23,20 @@ class _MapPageState extends State<MapPage> {
 
     try {
       // Fetch ISS location
+      //GET request to api, converted to object then stored 
       final response = await http.get(Uri.parse(apiUrl));
-      if (response.statusCode == 200) {
-        final data = json.decode(response.body);
+      if (response.statusCode == 200) { //200 is good
+        final data = json.decode(response.body); //omly process when good 
 
-        // Log the API response
+        // Log the API response debugginggg
         print('API response: $data');
 
-        final latitudeValue = data['latitude'];
-        final longitudeValue = data['longitude'];
+        // Convert to numbers so no error maybe possibly 
+        final latitudeValue = double.parse(data['latitude'].toString());
+        final longitudeValue = double.parse(data['longitude'].toString());
 
         // Log the extracted values
+        //cause nonsene with api not working
         print('Extracted latitude: $latitudeValue, longitude: $longitudeValue');
 
         // Update UI
@@ -41,28 +45,40 @@ class _MapPageState extends State<MapPage> {
           longitude = 'Longitude: $longitudeValue';
         });
 
-        // Call the Cloud Function
-        final HttpsCallable callable = FirebaseFunctions.instance.httpsCallable(
-          'updateIssLocation',
-        );
-        final result = await callable.call({
-          'latitude': latitudeValue,
-          'longitude': longitudeValue,
-        });
+        try {
+          // Call the Cloud Function 
+          final callable = FirebaseFunctions.instanceFor(
+            region: 'us-central1',
+          ).httpsCallable('updateIssLocation');
+          
+          final result = await callable.call({
+            'latitude': latitudeValue,
+            'longitude': longitudeValue,
+          });
 
-        print(result.data['message']); // Log success message
+          print('Cloud Function result: ${result.data}');
+        } catch (functionError) {
+          print('Cloud Function error: $functionError');
+          setState(() {
+            latitude = 'Error: Cloud Function failed';
+            longitude = 'Error: Cloud Function failed';
+          });
+
+        }
       } else {
         print('Error fetching ISS location: ${response.statusCode}');
+        print('Response body: ${response.body}');
         setState(() {
-          latitude = 'Error fetching data';
-          longitude = 'Error fetching data';
+          latitude = 'Error: HTTP ${response.statusCode}';
+          longitude = 'Error: HTTP ${response.statusCode}';
         });
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
       print('Error: $e');
+      //print('Stack trace: $stackTrace');
       setState(() {
-        latitude = 'Error fetching dataa';
-        longitude = 'Error fetching dataa';
+        latitude = 'Error: $e';
+        longitude = 'Error: $e';
       });
     }
   }

@@ -7,6 +7,32 @@
   <title>Space App</title>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="favicon.png">
+
+  <!-- Firebase SDK -->
+  <!-- cause too many issues -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-functions.js"></script>
+
+  <script>
+    //  Firebase configuration from console thing 
+    const firebaseConfig = {
+      apiKey: "AIzaSyAsXmVz12P5UPwpvTX0Z-YtU5MMJ2_omFw",
+      authDomain: "fnof-stack-a31a1.firebaseapp.com",
+      projectId: "fnof-stack-a31a1",
+      storageBucket: "fnof-stack-a31a1.firebasestorage.app",
+      messagingSenderId: "807836240261",
+      appId: "1:807836240261:web:c8ae5b478e1f3d4bc85cec"
+    };
+
+    // Initialize Firebase
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+
+    const functions = firebase.functions();
+
+  </script>
+
   <script src="flutter.js" defer></script>
 </head>
 
