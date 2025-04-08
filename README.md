@@ -2,7 +2,7 @@
 
 Same app as before (celestia) but using Flutter :)
 
-# View as Website (probably looks cooler cause it was made with a larger screen in mind
+View as Website (probably looks cooler cause it was made with a larger screen in mind
 
 # ...
 
